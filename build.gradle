@@ -1,0 +1,57 @@
+// Top-level build file where you can add configuration options common to all sub-projects/modules.
+buildscript {
+    repositories {
+        google()
+        mavenCentral()
+    }
+    dependencies {
+        classpath "com.android.tools.build:gradle:4.2.1"
+
+        // NOTE: Do not place your application dependencies here; they belong
+        // in the individual module build.gradle files
+    }
+}
+
+allprojects {
+    repositories {
+        google()
+        mavenCentral()
+        jcenter() // Warning: this repository is going to shut down soon
+    }
+}
+
+task clean(type: Delete) {
+    delete rootProject.buildDir
+}
+
+ext{
+
+    isDebug = false  // 当isDebug = true时为调试模式,组件可以单独运行，当isDebug = false时为生产模式
+
+    android = [
+            compileSdkVersion : 30,
+            buildToolsVersion : "30.0.3",
+            minSdkVersion     : 21,
+            targetSdkVersion  : 30,
+            versionCode       : 1,
+            versionName       : "1.0"
+    ]
+
+    applicationId = [
+            "app"   : "com.yan.component_demo",
+            "main"  : "com.yan.module.main",
+            "login" : "com.yan.core.login"
+    ]
+
+    library = [
+            "appcompat"         :   "androidx.appcompat:appcompat:1.2.0",
+            "material"          :   "com.google.android.material:material:1.2.1",
+            "constraintlayout"    :   "androidx.constraintlayout:constraintlayout:2.0.1"
+    ]
+
+    libArouter  =   "com.alibaba:arouter-api:1.5.2"
+    libArouterCompiler = "com.alibaba:arouter-compiler:1.5.2"
+    libRxjava = "io.reactivex.rxjava3:rxjava:3.1.3"
+    libRxandroid = "io.reactivex.rxjava3:rxandroid:3.0.0"
+
+}

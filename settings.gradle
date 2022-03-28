@@ -1,0 +1,5 @@
+rootProject.name = "component_demo"
+include ':app'
+include ':modulesCore:main'
+include ':modulesBase:libBase'
+include ':modulesCore:login'
